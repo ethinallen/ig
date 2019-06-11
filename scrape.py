@@ -45,7 +45,6 @@ def pullAttrs(url):
                 for key in contents[key]:
                     if key == 'interactionStatistic':
                         person[key] = contents['mainEntityofPage'][key]['userInteractionCount']
-        print(person)
 
 if __name__ == '__main__':
 
@@ -54,6 +53,10 @@ if __name__ == '__main__':
         handle = argv[1]
         url = baseURL + handle
         pullAttrs(url)
+    if argv[2]:
+        print('NAME:\t\t{}'.format(person['name']))
+        print('FOLLOWERS:\t{}'.format(person['interactionStatistic']))
+        print('DESCRIPTION:\t{}'.format(person['description']))
 
     # no handle provided
     else:
